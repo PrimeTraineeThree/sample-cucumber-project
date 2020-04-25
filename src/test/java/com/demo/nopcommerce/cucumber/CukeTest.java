@@ -9,11 +9,14 @@ import org.junit.runner.RunWith;
 /**
  * Created by Jay
  */
+
+
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = ".",
-        plugin = {"pretty","html:target/cucumber-report", "com.cucumber.listener.ExtentCucumberFormatter:target/Extent_Reports/report.html"},
-        monochrome = true
+        plugin = {"json:target/RunCuke/cucumber.json","pretty","html:target/cucumber-report/cucumber.html", "com.cucumber.listener.ExtentCucumberFormatter:target/Extent_Reports/report.html"},
+        monochrome = true,
+        tags = {"@Sanity"}
 )
 public class CukeTest {
 

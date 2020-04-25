@@ -1,5 +1,6 @@
 package com.demo.nopcommerce.pages;
 
+import com.cucumber.listener.Reporter;
 import com.demo.nopcommerce.utility.Utility;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -21,13 +22,15 @@ public class HomePage extends Utility {
 
 
     public void clickOnLoginLink() {
+        Reporter.addStepLog("Clicking on login link : " + _loginLink.toString());
         clickOnElement(_loginLink);
         log.info("Clicking on login link : " + _loginLink.toString());
     }
 
     public void clickOnRegisterLink() {
+        Reporter.addStepLog("Clicking on register link : " + _registerLink.toString());
         clickOnElement(_registerLink);
-        log.info("Clicking on login link : " + _registerLink.toString());
+        log.info("Clicking on register link : " + _registerLink.toString());
     }
 
 

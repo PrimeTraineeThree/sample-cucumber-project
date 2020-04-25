@@ -27,12 +27,20 @@ public class LoginPage extends Utility {
     @FindBy(xpath = "//div[@class='page-title']//h1")
     WebElement _welcomeText;
 
+    @FindBy(xpath = "//div[@class='topic-block-title']//h2")
+    WebElement _welcomeToStoreText;
+
+    @FindBy(xpath = "//div[@class='message-error validation-summary-errors']")
+    WebElement _errorMessage;
+
     public void enterEmailId(String email) {
+        Reporter.addStepLog("Entering email address : " + email + " to email field : " + _emailField.toString());
         sendTextToElement(_emailField, email);
         log.info("Entering email address : " + email + " to email field : " + _emailField.toString());
     }
 
     public void enterPassword(String password) {
+        Reporter.addStepLog("Entering password : " + password + " to password field : " + _passwordField.toString());
         sendTextToElement(_passwordField, password);
         log.info("Entering password : " + password + " to password field : " + _passwordField.toString());
     }
@@ -43,8 +51,23 @@ public class LoginPage extends Utility {
     }
 
     public String getWelcomeText() {
+        Reporter.addStepLog("Getting text from : " + _welcomeText.toString());
         log.info("Getting text from : " + _welcomeText.toString());
         return getTextFromElement(_welcomeText);
+
+    }
+
+    public String getWelcomeToStoreText() {
+        Reporter.addStepLog("Getting text from : " + _welcomeToStoreText.toString());
+        log.info("Getting text from : " + _welcomeToStoreText.toString());
+        return getTextFromElement(_welcomeToStoreText);
+
+    }
+
+    public String getErrorMessage() {
+        Reporter.addStepLog("Getting error message  from : " + _errorMessage.toString());
+        log.info("Getting error message : " + _errorMessage.toString());
+        return getTextFromElement(_errorMessage);
 
     }
 
